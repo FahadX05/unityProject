@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public int health = 3;
+    public GameObject[] hearts;
 
     private Rigidbody2D rb;
 
@@ -25,5 +27,25 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+    }
+
+    public void TakeHit(){
+        Debug.Log("well");
+        health -= 1;
+        GameObject.Destroy(hearts[0]);
+    }
+
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log("Cool " + other.gameObject.name + " " + gameObject.name);
+        health -= 1;
+        if(health >= 0){
+            Destroy(hearts[health]);
+        }
     }
 }

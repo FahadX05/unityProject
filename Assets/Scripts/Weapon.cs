@@ -12,11 +12,11 @@ public class Weapon : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1")){
             Shoot();
+        
         }
     }
 
     void Shoot(){
-        //shooting logic
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

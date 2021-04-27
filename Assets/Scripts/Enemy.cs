@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleEnemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 
     public int health = 100;
@@ -11,7 +11,7 @@ public class CircleEnemy : MonoBehaviour
     private float speed;
 
     [SerializeField]
-    private Vector3[] postitions;
+    private Vector3[] positions;
     private int index;
 
     public void TakeDamage(int damage){
@@ -34,9 +34,9 @@ public class CircleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.position = Vector2.MoveTowards(transform.position, postitions[index], Time.deltaTime * speed);
-       if(transform.position == postitions[index]){
-           if(index == postitions.Length - 1){
+       transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
+       if(transform.position == positions[index]){
+           if(index == positions.Length - 1){
                index = 0;
            }
            else{

@@ -14,9 +14,9 @@ public class BulletScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
-        CircleEnemy enemy = hitInfo.GetComponent<CircleEnemy>();
+        Enemy enemy = hitInfo.GetComponent<Enemy>();
         if(enemy != null){
-            enemy.TakeDamage(100);
+            enemy.TakeDamage(50);
         }
         Destroy(gameObject);
     }
